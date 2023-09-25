@@ -1,6 +1,22 @@
 #include <stdio.h>
 #include "sort.h"
 /**
+ * swap_ints - Swap two integers in an array.
+ * @a: The first integer to swap.
+ * @b: The second integer to swap.
+ */
+
+void swap_ints(int *a, int *b)
+{
+
+	int tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+/**
  * shell_sort - Sorts an array of integers in ascending order using shell sort
  * @array: The array to be sorted.
  * @size: The size of the array.
@@ -9,28 +25,23 @@
 void shell_sort(int *array, size_t size)
 {
 
-	size_t gap = 1;
-	size_t i, j;
-	int temp;
+	size_t gap, i, j;
 
 	if (array == NULL || size < 2)
 		return;
-	while (gap < size / 3)
+	for (gap = 1; gap < (size / 3);)
 		gap = gap * 3 + 1;
-	while (gap > 0)
+	for (; gap >= 1; gap /= 3)
 	{
 		for (i = gap; i < size; i++)
 		{
-			temp = array[i];
 			j = i;
-			while (j >= gap && array[j - gap] > temp)
+			while (j >= gap && array[j - gap] > array[j])
 			{
-				array[j] = array[j - gap];
+				swap_ints(array + j, array + (j - gap));
 				j -= gap;
 			}
-			array[j] = temp;
 		}
-		gap = (gap - 1) / 3;
 		print_array(array, size);
 	}
 }
