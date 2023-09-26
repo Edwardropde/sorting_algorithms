@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include "deck.h"
 /**
  * compare_cards - Compare two cards for sorting

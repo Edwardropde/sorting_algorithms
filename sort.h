@@ -20,6 +20,9 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+#define UP 0
+#define DOWN 1
+
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void swap_ints(int *a, int *b);

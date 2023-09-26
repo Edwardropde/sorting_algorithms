@@ -25,13 +25,13 @@ void swap_ints(int *a, int *b)
 /**
  * lomuto_partition - Partitions an array using the Lomuto scheme
  * @array: The array to be partitioned.
- * @low: The low index of the partition.
- * @high: The high index of the partition.
+ * @left: The low index of the partition.
+ * @right: The high index of the partition.
  * @size: The size of the array.
  * Return: The index of the pivot element.
  */
 
-int lomuto_partition(int *array, int low, int high, size_t size)
+int lomuto_partition(int *array, size_t size, int left, int right)
 {
 
 	int *pivot, above, below;
